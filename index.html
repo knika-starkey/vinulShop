@@ -12,6 +12,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/896511d7d7.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       #load {
         visibility: visible;
@@ -23,8 +27,38 @@
           rgba(0, 0, 0, 0.75);
       }
     </style>
+    <script>
+      let $ = jQuery.noConflict(true);
+
+      $(document).ready(function () {
+        let offset = 200; // координата сдвига по оси Y
+        let duration = 300; // время выполнения
+        $("#totop").fadeOut(0);
+        $('a[href^="#"]:not([href="#demo"]').click(function () {
+          // если в href начинается с #, то обрабатываем клик
+          let scrollEl = $(this).attr("href"); // возьмем содержимое атрибута href
+          if ($(scrollEl).length != 0) {
+            // проверим существование элемента чтобы избежать ошибки
+            $("html, body").animate(
+              { scrollTop: $(scrollEl).offset().top },
+              500
+            ); // анимируем скроолинг к элементу scrollEl
+          }
+          return false; // выключаем стандартное действие
+        });
+
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > offset) {
+            $("#totop").css("opacity", "0.8"); // возвращаем прозрачность
+            $("#totop").fadeIn(duration); // элемент плавно исчезает
+          } else {
+            $("#totop").fadeOut(duration); // элемент плавно появляется
+          }
+        });
+      });
+    </script>
   </head>
-  <body>
+  <body id="myPage">
     <div id="load"></div>
     <div id="contents">
       <div class="container-fluid header p-0">
@@ -148,6 +182,45 @@
         </form>
       </div>
     </div>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius commodi
+    laudantium, sint, nulla voluptate eum provident pariatur, corrupti id minima
+    aspernatur debitis autem error rerum illo similique magnam fugiat! Nam.
+    Soluta ratione aut quaerat dignissimos libero iure magni adipisci ducimus
+    veritatis aliquam! Exercitationem est deserunt voluptates earum culpa
+    facilis labore quasi nulla delectus, quisquam in, dolore, maiores dolorem
+    distinctio ad. Libero recusandae nobis dicta, alias, aliquam modi inventore
+    facere voluptas quas iusto dignissimos est illo soluta! Aut dolor natus
+    nesciunt illum autem est voluptas nostrum quo sequi rerum. Neque, nesciunt.
+    Et numquam, ab enim maiores, reprehenderit dicta corporis illum soluta
+    veritatis animi vitae eligendi rem repellat deleniti ducimus esse natus eos
+    ex tenetur ipsa molestias magnam delectus. Culpa, eveniet modi? Perferendis
+    ipsa repellat iste veritatis praesentium odit qui amet doloribus voluptates
+    magni adipisci fuga ut, modi ullam illo porro recusandae, iure corporis
+    officia ducimus! Deserunt, iusto! Cum qui asperiores quas. Magni velit,
+    reprehenderit modi voluptatibus, ipsam quam vitae in repellendus temporibus
+    quia non ab soluta nam nisi nihil eius autem aperiam sapiente nesciunt iusto
+    doloribus ad expedita! In, nulla numquam. Non impedit adipisci hic, quasi
+    optio praesentium eligendi odio ipsum iure reprehenderit fuga laudantium
+    iste? Illo vero, error quisquam ipsam rerum nulla dolor ducimus fugiat sint,
+    necessitatibus culpa aliquam autem. Inventore ab autem reprehenderit.
+    Nesciunt impedit fugit, molestiae vitae eos enim iusto adipisci asperiores
+    nobis! Aut provident, dolores fugit velit sint ad est quo debitis nobis sunt
+    aliquam eveniet! Eos. Nostrum, nemo voluptas, ab magnam ad harum, rem ipsam
+    iste ullam magni porro architecto rerum consectetur suscipit enim quasi vero
+    odio officiis nobis earum. Deserunt dolores velit delectus illum ipsam.
+    Voluptates sed iste libero ratione, cum aliquid, porro deleniti, quae
+    voluptas nihil eum veritatis obcaecati eaque dolorem labore itaque vel
+    possimus? Fugiat nam blanditiis aspernatur cum ullam et, soluta beatae?
+    Neque dolore reiciendis itaque earum laboriosam quibusdam magnam assumenda
+    sit, obcaecati voluptatem id minima necessitatibus modi ullam facere aperiam
+    maxime similique corrupti blanditiis porro officiis aut! Quis a incidunt
+    ipsum! Ducimus distinctio voluptatibus magnam omnis eos beatae, modi vero
+    ipsam cum quibusdam mollitia ad iusto a molestias voluptatem doloremque
+    assumenda laudantium debitis harum animi, facilis soluta. Est eveniet iusto
+    ea?
+    <a href="#myPage" title="To Top" id="totop">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
     <script src="./chatbot.js "></script>
     <script src="./script.js"></script>
   </body>

@@ -68,3 +68,18 @@
 .bot_answ{
     background-color:#bbbbbc;color:#292a2d;
 }
+#totop {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  padding: 0px 0 3px 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #292a2d;
+  border-radius: 50%;
+  font-size: 25px;
+  color: #bbbbbc;
+  z-index: 9999;
+  box-sizing: border-box;
+  opacity: 0;
+}
