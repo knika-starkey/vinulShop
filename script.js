@@ -7,6 +7,6 @@ document.onreadystatechange = function () {
     setTimeout(function () {
       document.getElementById("load").style.visibility = "hidden";
       document.getElementById("contents").style.visibility = "visible";
-    }, 2000);
+    }, 2500);
   }
 };
